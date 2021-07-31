@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"path/filepath"
+	"time"
 )
 
 type Provider struct {
@@ -38,6 +39,7 @@ func (p *Provider) upload(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"uploaded": true,
+		"filename":  filename,
+		"timestamp": time.Now(),
 	})
 }
